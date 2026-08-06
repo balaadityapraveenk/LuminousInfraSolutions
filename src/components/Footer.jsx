@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="footer-brand">
             <div className="logo">
               <div className="logo-icon">
-                <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                   <ellipse cx="50" cy="40" rx="46" ry="34" fill="#e31e24" />
                   <path d="M55 14 L35 40 H47 L45 66 L65 40 H53 Z" fill="#ffffff" />
                 </svg>

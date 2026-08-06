@@ -54,7 +54,7 @@ function App() {
       <div className="login-card">
         <div className="login-header">
           <div className="login-logo-container">
-            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
               <defs>
                 <filter id="logoShadow" x="-20%" y="-20%" width="140%" height="140%">
                   <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.3" />
