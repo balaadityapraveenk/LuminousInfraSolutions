@@ -12,7 +12,7 @@ const About = () => {
               <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&q=80" alt="Advanced Power Substation" />
             </div>
             <div className="experience-badge">
-              <span className="years">25+</span>
+              <span className="years">3+</span>
               <span className="text">Years of<br/>Excellence</span>
             </div>
             <div className="decorative-lines">
@@ -22,13 +22,13 @@ const About = () => {
           
           <div className="about-content">
             <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
-              Pioneering the <span className="text-gradient">Energy Transition</span>
+              Who <span className="text-gradient">We Are</span>
             </h2>
             <p className="lead-text">
-              We don't just build power infrastructure; we engineer the backbone of modern society with unyielding precision and innovation.
+              Established in 2023, M/s Luminous Power Infra Solutions has rapidly grown as a trusted EPC Partner delivering solutions for all Electrical & Road safety works.
             </p>
             <p className="body-text">
-              Luminous Power Infra has been at the forefront of the electrical engineering sector, delivering mission-critical projects that power industries, cities, and entire regions. Our commitment to quality, safety, and sustainable practices ensures that every circuit we design and every substation we build stands resilient against the test of time.
+              We undertake Design, Supply, Installation and Commissioning of LED Street Lights, Flood lights, On-grid and Off-grid Solar Power Systems, and CCTV Cameras for Roads, Industries, and Institutions. We also undertake Road Safety works viz. Road Marking, Installation of Traffic Sign Boards, LED Sign Boards, Metal Beam Crash Barriers, and more.
             </p>
             
             <div className="features-list">

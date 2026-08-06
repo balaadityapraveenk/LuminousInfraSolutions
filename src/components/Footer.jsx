@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -24,10 +24,10 @@ const Footer = () => {
             <div className="link-column">
               <h4>Solutions</h4>
               <ul>
-                <li><a href="#substations">Substations</a></li>
-                <li><a href="#transmission">Transmission</a></li>
-                <li><a href="#smartgrid">Smart Grid</a></li>
-                <li><a href="#renewable">Renewables</a></li>
+                <li><a href="#services">Illumination</a></li>
+                <li><Link to="/solar">Solar Power</Link></li>
+                <li><a href="#services">Road Furniture</a></li>
+                <li><a href="#services">Traffic Management</a></li>
               </ul>
             </div>
             
@@ -36,7 +36,6 @@ const Footer = () => {
               <ul>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#careers">Careers</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
             </div>
@@ -46,7 +45,6 @@ const Footer = () => {
               <ul>
                 <li><a href="#privacy">Privacy Policy</a></li>
                 <li><a href="#terms">Terms of Service</a></li>
-                <li><a href="#compliance">Compliance</a></li>
               </ul>
             </div>
           </div>

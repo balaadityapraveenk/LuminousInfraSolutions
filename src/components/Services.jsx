@@ -5,11 +5,23 @@ import './Services.css';
 const servicesData = [
   {
     id: 1,
-    title: "High Voltage Substations",
-    description: "Turnkey solutions for AIS and GIS substations up to 765kV, fully integrated with advanced automation systems.",
+    title: "Illumination",
+    description: "Design, supply, installation, and commissioning of professional LED lighting systems.",
+    bulletPoints: [
+      "LED lighting for Roads, Highways, and Streets as per IRC Code standards",
+      "LED lights with suitable electrical wiring in Industries and Institutions as per IS Standards"
+    ],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
       </svg>
     ),
     color: "blue",
@@ -17,39 +29,52 @@ const servicesData = [
   },
   {
     id: 2,
-    title: "Transmission Lines",
-    description: "Design, testing, and commissioning of overhead and underground transmission infrastructure.",
+    title: "Solar Power Solutions",
+    description: "Eco-friendly, ground-mounted and rooftop solar power infrastructure.",
+    bulletPoints: [
+      "Supply and Installation of Off-Grid and On-Grid Ground Solar Systems for Street lighting",
+      "Rooftop Solar Systems for Hospitals, Industries, and Institutions"
+    ],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
+        <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+      </svg>
+    ),
+    color: "yellow",
+    link: "/solar"
+  },
+  {
+    id: 3,
+    title: "Road Furniture",
+    description: "Complete manufacturing and installation of highway safety fixtures.",
+    bulletPoints: [
+      "Supply & Installation of Traffic Sign Boards, Road Studs, and Delineators",
+      "Gantry & Cantilever Structures for Sign Boards and LED Boards",
+      "Supply & Installation of Metal Beam Crash Barriers and Road Markings"
+    ],
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M4 22V2M4 5h16l-3 4 3 4H4" />
       </svg>
     ),
     color: "orange",
     link: "#"
   },
   {
-    id: 3,
-    title: "Smart Grid Integration",
-    description: "Implementing SCADA, ADMS, and IoT-based monitoring for modern grid stability and efficiency.",
+    id: 4,
+    title: "Traffic Management",
+    description: "Advanced surveillance and camera solutions for intelligent roadways.",
+    bulletPoints: [
+      "Supply & Installation of pole-mounted PTZ and CCTV Cameras",
+      "Supply & Installation of Gantry-mounted Cameras & VMS System"
+    ],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>
+        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
       </svg>
     ),
     color: "cyan",
     link: "#"
-  },
-  {
-    id: 4,
-    title: "Renewable Energy Parks",
-    description: "Complete electrical balance of plant (eBoP) for large-scale solar and wind power generation.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-    ),
-    color: "yellow",
-    link: "/solar"
   }
 ];
 
@@ -69,11 +94,20 @@ const Services = () => {
                   {service.icon}
                 </div>
                 <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <Link to={service.link} className="learn-more">
-                  Learn More 
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </Link>
+                <p style={{ marginBottom: '1rem', minHeight: '48px' }}>{service.description}</p>
+                {service.bulletPoints && (
+                  <ul className="service-bullet-points">
+                    {service.bulletPoints.map((bp, i) => (
+                      <li key={i}>{bp}</li>
+                    ))}
+                  </ul>
+                )}
+                <div style={{ marginTop: 'auto' }}>
+                  <Link to={service.link} className="learn-more">
+                    Learn More 
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

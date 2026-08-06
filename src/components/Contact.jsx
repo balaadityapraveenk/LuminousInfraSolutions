@@ -1,17 +1,57 @@
 import React, { useState } from 'react';
 import './Contact.css';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:5000';
+
+const projectLabels = {
+  substation: 'Substation Construction',
+  transmission: 'Transmission Lines',
+  smartgrid: 'Smart Grid Integration',
+  solar: 'Rooftop Solar',
+  other: 'Other Inquiry',
+};
+
 const Contact = () => {
   const [formStatus, setFormStatus] = useState('idle');
+  const [formError, setFormError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('submitting');
-    // Simulate API call
-    setTimeout(() => {
+    setFormError('');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const projectValue = formData.get('project');
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/requests`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          company: formData.get('company'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          location: formData.get('location'),
+          project: projectLabels[projectValue] || projectValue,
+          message: formData.get('message'),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Unable to save the request. Please try again.');
+      }
+
       setFormStatus('success');
+      form.reset();
       setTimeout(() => setFormStatus('idle'), 3000);
-    }, 1500);
+    } catch (error) {
+      setFormStatus('idle');
+      setFormError(error.message);
+    }
   };
 
   return (
@@ -58,31 +98,41 @@ const Contact = () => {
               <div className="form-grid">
                 <div className="input-group">
                   <label htmlFor="name">Full Name</label>
-                  <input type="text" id="name" required placeholder="John Doe" />
+                  <input type="text" id="name" name="name" required />
                 </div>
                 <div className="input-group">
                   <label htmlFor="company">Company</label>
-                  <input type="text" id="company" placeholder="Organization Ltd." />
+                  <input type="text" id="company" name="company" />
                 </div>
               </div>
               <div className="input-group">
                 <label htmlFor="email">Email Address</label>
-                <input type="email" id="email" required placeholder="john@company.com" />
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div className="input-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+              <div className="input-group">
+                <label htmlFor="location">Project Location</label>
+                <input type="text" id="location" name="location" placeholder="City, state, or site area" />
               </div>
               <div className="input-group">
                 <label htmlFor="project">Project Scope</label>
-                <select id="project" required>
-                  <option value="" disabled selected>Select an option</option>
+                <select id="project" name="project" required defaultValue="">
+                  <option value="" disabled>Select an option</option>
                   <option value="substation">Substation Construction</option>
                   <option value="transmission">Transmission Lines</option>
                   <option value="smartgrid">Smart Grid Integration</option>
+                  <option value="solar">Rooftop Solar</option>
                   <option value="other">Other Inquiry</option>
                 </select>
               </div>
               <div className="input-group">
                 <label htmlFor="message">Message</label>
-                <textarea id="message" rows="4" required placeholder="Tell us about your requirements..."></textarea>
+                <textarea id="message" name="message" rows="4" required></textarea>
               </div>
+              {formError && <p className="form-error">{formError}</p>}
 
               <button
                 type="submit"

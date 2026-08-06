@@ -6,6 +6,7 @@ import Services from './components/Services';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Projects from './components/Projects';
 import Solar from './components/Solar';
 
 function Home() {
@@ -14,18 +15,16 @@ function Home() {
       <Hero />
       <Services />
       <About />
+      <Projects />
       <Contact />
     </>
   );
 }
 
 function App() {
-  const [theme, setTheme] = useState('dark');
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('app-theme') || 'dark';
-    setTheme(savedTheme);
-  }, []);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('app-theme') || 'dark';
+  });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);

@@ -6,29 +6,29 @@
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem;
+  gap: 5rem;
   align-items: center;
 }
 
 .about-visual {
   position: relative;
-  padding: 2rem 0 0 2rem;
+  padding: 1.5rem 0 0 1.5rem;
 }
 
 .image-wrapper {
   position: relative;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  transform: relative;
+  box-shadow: var(--shadow-soft);
   z-index: 1;
+  border: 1px solid var(--border-subtle);
 }
 
 .image-wrapper img {
   width: 100%;
   height: auto;
   display: block;
-  filter: grayscale(80%) contrast(1.2);
+  filter: saturate(0.85) contrast(1.04);
   transition: filter var(--transition-slow);
 }
 
@@ -39,7 +39,7 @@
 .overlay-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0, 102, 255, 0.4), rgba(255, 94, 0, 0.4));
+  background: linear-gradient(135deg, rgba(21, 94, 117, 0.28), rgba(201, 103, 29, 0.2));
   mix-blend-mode: overlay;
   z-index: 2;
   transition: opacity var(--transition-slow);
@@ -53,17 +53,16 @@
   position: absolute;
   top: -1rem;
   left: -2rem;
-  background: var(--bg-glass);
+  background: var(--bg-secondary);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-subtle);
   padding: 1.5rem 2rem;
-  border-radius: var(--border-radius-md);
+  border-radius: 8px;
   z-index: 3;
   display: flex;
   align-items: center;
   gap: 1rem;
-  box-shadow: var(--shadow-glow);
-  animation: float 8s infinite ease-in-out;
+  box-shadow: var(--shadow-soft);
 }
 
 .experience-badge .years {
@@ -80,8 +79,7 @@
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 .decorative-lines {
@@ -133,9 +131,9 @@
 .check-icon {
   width: 32px;
   height: 32px;
-  background: rgba(0, 240, 255, 0.1);
+  background: rgba(21, 94, 117, 0.1);
   color: var(--accent-cyan);
-  border-radius: 50%;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;

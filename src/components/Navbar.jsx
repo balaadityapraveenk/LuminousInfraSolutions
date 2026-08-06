@@ -36,6 +36,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           <li>{isHome ? <a href="#services">Solutions</a> : <Link to="/#services">Solutions</Link>}</li>
           <li><Link to="/solar" style={{ color: location.pathname === '/solar' ? 'var(--accent-yellow)' : '' }}>Solar</Link></li>
           <li>{isHome ? <a href="#about">About</a> : <Link to="/#about">About</Link>}</li>
+          <li>{isHome ? <a href="#projects">Projects</a> : <Link to="/#projects">Projects</Link>}</li>
           <li>{isHome ? <a href="#contact">Contact</a> : <Link to="/#contact">Contact</Link>}</li>
         </ul>
         <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>

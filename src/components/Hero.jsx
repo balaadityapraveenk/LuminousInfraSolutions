@@ -29,8 +29,8 @@ const Hero = () => {
           
           <div className="stats-row delay-3 animate-fade-in">
             <div className="stat-item">
-              <h3>500+</h3>
-              <p>MW Installed</p>
+              <h3>3</h3>
+              <p>Projects Completed</p>
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
@@ -47,20 +47,9 @@ const Hero = () => {
         
         <div className="hero-visual delay-1 animate-fade-in">
           <div className="visual-container">
-            <div className="transformer-model">
-               {/* Decorative elements representing infrastructure */}
-               <div className="t-base"></div>
-               <div className="t-body">
-                 <div className="t-bars"></div>
-                 <div className="t-bars"></div>
-                 <div className="t-bars"></div>
-               </div>
-               <div className="t-tops">
-                 <div className="t-insulator"></div>
-                 <div className="t-insulator"></div>
-                 <div className="t-insulator"></div>
-               </div>
-               <div className="energy-flow"></div>
+            <div className="hero-image-wrapper">
+              <img src="/power_infra_hero.png" alt="Intelligent Power Infrastructure" className="hero-image" />
+              <div className="image-glow"></div>
             </div>
             <div className="orbit orbit-1"></div>
             <div className="orbit orbit-2"></div>

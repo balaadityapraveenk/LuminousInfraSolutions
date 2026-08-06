@@ -1,7 +1,7 @@
 .footer {
   background: var(--bg-primary);
   padding: 4rem 0 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-subtle);
   position: relative;
 }
 
@@ -12,8 +12,8 @@
   left: 0;
   width: 100%;
   height: 5px;
-  background: var(--gradient-glow);
-  opacity: 0.5;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-green), var(--accent-orange));
+  opacity: 0.8;
 }
 
 .footer-top {
@@ -67,7 +67,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   font-size: 0.9rem;
   flex-wrap: wrap;
