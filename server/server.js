@@ -23,6 +23,42 @@ const targetDatabase = process.env.DB_DATABASE || 'luminouspower';
 
 // Function to initialize database and table
 async function initDB() {
+  if (process.env.DATABASE_URL) {
+    // For cloud environments (like Render), connect directly using the connection string
+    const appPool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false }
+    });
+    try {
+      // Create base table
+      await appPool.query(`
+        CREATE TABLE IF NOT EXISTS contact_requests (
+          id SERIAL PRIMARY KEY,
+          name VARCHAR(255) NOT NULL,
+          company VARCHAR(255),
+          email VARCHAR(255) NOT NULL,
+          project VARCHAR(100) NOT NULL,
+          message TEXT NOT NULL,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+      `);
+
+      // Run migrations to ensure newer columns exist
+      await appPool.query(`ALTER TABLE contact_requests ADD COLUMN IF NOT EXISTS phone VARCHAR(50)`);
+      await appPool.query(`ALTER TABLE contact_requests ADD COLUMN IF NOT EXISTS location VARCHAR(255)`);
+      await appPool.query(`ALTER TABLE contact_requests ADD COLUMN IF NOT EXISTS status VARCHAR(50) DEFAULT 'New'`);
+      await appPool.query(`ALTER TABLE contact_requests ADD COLUMN IF NOT EXISTS priority VARCHAR(50) DEFAULT 'Medium'`);
+
+      console.log(`Table 'contact_requests' structure verified in production DB.`);
+    } catch (err) {
+      console.error('Error verifying table structure in production DB:', err.message);
+    } finally {
+      await appPool.end();
+    }
+    return;
+  }
+
+  // Local DB setup
   // 1. Connect to default 'postgres' database to ensure target database exists
   const sysPool = new Pool({ ...dbConfig, database: 'postgres' });
   try {
@@ -77,7 +113,12 @@ async function initDB() {
 await initDB();
 
 // Create application database connection pool
-const pool = new Pool({ ...dbConfig, database: targetDatabase });
+const pool = process.env.DATABASE_URL
+  ? new Pool({
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false }
+    })
+  : new Pool({ ...dbConfig, database: targetDatabase });
 
 // POST route: Add new request
 app.post('/api/requests', async (req, res) => {
