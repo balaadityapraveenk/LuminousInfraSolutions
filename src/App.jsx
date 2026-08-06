@@ -23,7 +23,7 @@ function Home() {
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('app-theme') || 'dark';
+    return localStorage.getItem('app-theme') || 'light';
   });
 
   useEffect(() => {
