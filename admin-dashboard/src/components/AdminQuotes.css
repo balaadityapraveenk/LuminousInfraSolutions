@@ -39,9 +39,8 @@
 }
 
 .admin-logo-svg {
-  width: 24px;
+  width: 30px;
   height: 24px;
-  color: var(--accent-cyan);
 }
 
 .logout-btn {

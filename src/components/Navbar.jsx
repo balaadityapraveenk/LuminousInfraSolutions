@@ -25,8 +25,9 @@ const Navbar = ({ theme, toggleTheme }) => {
       <div className="container navbar-container">
         <Link to="/" className="logo">
           <div className="logo-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13 2L4.09347 12.6879C3.74466 13.1064 4.04236 13.75 4.58559 13.75H11L10 22L19.9065 11.3121C20.2553 10.8936 19.9576 10.25 19.4144 10.25H13L13 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="40" rx="46" ry="34" fill="#e31e24" />
+              <path d="M55 14 L35 40 H47 L45 66 L65 40 H53 Z" fill="#ffffff" />
             </svg>
           </div>
           <span className="logo-text">Luminous <span className="text-gradient">Power Infra </span>Solutions</span>

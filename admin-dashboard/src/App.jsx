@@ -54,8 +54,17 @@ function App() {
       <div className="login-card">
         <div className="login-header">
           <div className="login-logo-container">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13 2L4.09347 12.6879C3.74466 13.1064 4.04236 13.75 4.58559 13.75H11L10 22L19.9065 11.3121C20.2553 10.8936 19.9576 10.25 19.4144 10.25H13L13 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="logoShadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.3" />
+                </filter>
+              </defs>
+              <g filter="url(#logoShadow)">
+                <ellipse cx="60" cy="42" rx="52" ry="38" fill="#e31e24" />
+                <path d="M66 12 L43 42 H56 L54 72 L77 42 H64 Z" fill="#ffffff" />
+                <text x="60" y="108" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="28" font-weight="900" font-style="italic" fill="#4e3797" stroke="#ffffff" stroke-width="4px" paint-order="stroke fill" text-anchor="middle">LPIS</text>
+              </g>
             </svg>
           </div>
           <h1>Luminous Admin</h1>

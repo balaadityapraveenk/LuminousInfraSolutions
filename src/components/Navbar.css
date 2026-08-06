@@ -35,15 +35,11 @@
 }
 
 .logo-icon {
-  width: 32px;
-  height: 32px;
-  color: #fff;
-  background: var(--gradient-power);
-  border-radius: 8px;
+  width: 36px;
+  height: 29px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
 }
 
 .nav-links {
